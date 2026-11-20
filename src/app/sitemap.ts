@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { getAllLandingSlugs } from "@/data/landings";
 import { services } from "@/data/services";
 import { siteUrl } from "@/data/site";
 
@@ -20,6 +21,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: path === "" ? "weekly" : "monthly",
     priority: path === "" ? 1 : 0.75,
   }));
+
+  for (const slug of getAllLandingSlugs()) {
+    entries.push({
+      url: `${base}/c/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    });
+  }
 
   for (const s of services) {
     entries.push({
