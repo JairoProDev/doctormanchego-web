@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import { AboutClinicGallery } from "@/components/home/AboutClinicGallery";
 import { Hero } from "@/components/Hero";
 import { Section } from "@/components/Section";
 import { TrustStrip } from "@/components/TrustStrip";
@@ -17,7 +17,6 @@ import { bioParagraphs } from "@/data/credentials";
 import { faqs } from "@/data/faq";
 import { getFeaturedServices } from "@/data/services";
 import { site } from "@/data/site";
-import { publicPath } from "@/lib/paths";
 
 export default function HomePage() {
   const featured = getFeaturedServices();
@@ -49,6 +48,18 @@ export default function HomePage() {
                 <p key={p.slice(0, 48)}>{p}</p>
               ))}
             </div>
+            <ul className="mt-6 flex flex-wrap gap-2">
+              {["UNSAAC · familia y radiología", "UNSA · maestría y doctorado", "CMP 36594"].map(
+                (chip) => (
+                  <li
+                    key={chip}
+                    className="rounded-full border border-brand-gold/35 bg-brand-gold/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-brand-navy"
+                  >
+                    {chip}
+                  </li>
+                ),
+              )}
+            </ul>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/trayectoria"
@@ -65,21 +76,7 @@ export default function HomePage() {
             </div>
           </Reveal>
           <Reveal delayMs={120}>
-            <div className="relative">
-              <div className="absolute -inset-2 rounded-3xl bg-gradient-to-br from-brand-gold/25 to-brand-teal/20 blur-xl" />
-              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-xl ring-1 ring-brand-navy/10">
-                <Image
-                  src={publicPath("/images/sala-consultorio.webp")}
-                  alt="Sala de procedimientos del consultorio"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-              <p className="mt-4 text-center text-sm text-brand-navy/60">
-                Procedimientos, dolor y ecografía en el mismo piso.
-              </p>
-            </div>
+            <AboutClinicGallery />
           </Reveal>
         </div>
       </Section>

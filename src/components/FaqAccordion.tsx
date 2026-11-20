@@ -14,7 +14,7 @@ export function FaqAccordion({ items, limit }: Props) {
   const [openId, setOpenId] = useState<string | null>(list[0]?.id ?? null);
 
   return (
-    <div className="divide-y divide-brand-navy/10 rounded-2xl border border-brand-navy/10 bg-white">
+    <div className="divide-y divide-brand-navy/10 rounded-2xl border border-brand-navy/10 bg-white shadow-sm ring-1 ring-brand-navy/5">
       {list.map((item) => {
         const isOpen = openId === item.id;
         const panelId = `${baseId}-${item.id}`;
@@ -23,7 +23,7 @@ export function FaqAccordion({ items, limit }: Props) {
             <h3>
               <button
                 type="button"
-                className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-sm font-semibold text-brand-navy transition hover:bg-brand-cream/80 sm:text-base"
+                className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-sm font-semibold text-brand-navy transition hover:bg-brand-cream/80 sm:px-6 sm:py-5 sm:text-base"
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 onClick={() => setOpenId(isOpen ? null : item.id)}
@@ -41,7 +41,7 @@ export function FaqAccordion({ items, limit }: Props) {
               id={panelId}
               role="region"
               hidden={!isOpen}
-              className="px-5 pb-4 text-sm leading-relaxed text-brand-navy/75"
+              className="px-5 pb-5 text-sm leading-relaxed text-brand-navy/75 sm:px-6"
             >
               {item.answer}
             </div>

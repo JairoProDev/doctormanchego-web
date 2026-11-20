@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
+import { Reveal } from "@/components/motion/Reveal";
 import { PublicationList } from "@/components/PublicationList";
 import { credentials } from "@/data/credentials";
 import { academicPublications } from "@/data/publications";
@@ -19,22 +21,24 @@ export default function TrayectoriaPage() {
 
   return (
     <>
-      <Section
+      <PageHero
         eyebrow="Confianza"
         title="Trayectoria y formación"
         description={`Más de ${site.yearsPractice} años de ejercicio en Cusco. Colegiatura CMP ${site.cmp}.`}
-      >
+      />
+      <Section variant="elevated" title="Credenciales y reconocimientos">
         <ul className="grid gap-4 sm:grid-cols-2">
-          {credentials.map((c) => (
-            <li
-              key={c.id}
-              className="rounded-2xl border border-brand-navy/8 bg-white p-5 shadow-sm"
-            >
-              <p className="font-serif text-lg font-bold text-brand-navy">{c.title}</p>
-              <p className="mt-1 text-sm text-brand-teal">{c.issuer}</p>
-              <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-brand-sage">
-                {c.year}
-              </p>
+          {credentials.map((c, i) => (
+            <li key={c.id} className="list-none">
+              <Reveal delayMs={(i % 4) * 50}>
+                <div className="card-lift h-full rounded-2xl border border-brand-navy/8 bg-white p-5 shadow-sm">
+                  <p className="font-serif text-lg font-bold text-brand-navy">{c.title}</p>
+                  <p className="mt-1 text-sm text-brand-teal">{c.issuer}</p>
+                  <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-brand-sage">
+                    {c.year}
+                  </p>
+                </div>
+              </Reveal>
             </li>
           ))}
         </ul>
