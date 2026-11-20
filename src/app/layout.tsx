@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: absoluteUrl("/images/hero-dr-manchego.jpg"),
+        url: absoluteUrl("/images/hero-dr-manchego.webp"),
         width: 800,
         height: 800,
         alt: "Dr. Víctor Manchego",

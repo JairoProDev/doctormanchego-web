@@ -33,7 +33,7 @@ export default function HomePage() {
           </div>
           <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-lg ring-1 ring-brand-navy/10">
             <Image
-              src={publicPath("/images/sala-consultorio.jpg")}
+              src={publicPath("/images/sala-consultorio.webp")}
               alt="Sala de procedimientos del consultorio"
               fill
               className="object-cover"

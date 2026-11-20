@@ -50,7 +50,7 @@ export function Hero() {
         <div className="order-1 md:order-2">
           <div className="relative mx-auto aspect-[4/5] max-w-sm overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/20 md:max-w-none">
             <Image
-              src={publicPath("/images/hero-dr-manchego.jpg")}
+              src={publicPath("/images/hero-dr-manchego.webp")}
               alt="Dr. Víctor Manchego, médico radiólogo y de familia en Cusco"
               fill
               className="object-cover object-top"

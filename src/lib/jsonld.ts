@@ -11,7 +11,7 @@ export function physicianJsonLd() {
     alternateName: site.name,
     description: site.taglineSecondary,
     url,
-    image: `${url}/images/hero-dr-manchego.jpg`,
+    image: `${url}/images/hero-dr-manchego.webp`,
     telephone: `+${site.phoneWhatsapp}`,
     email: site.email,
     medicalSpecialty: ["FamilyMedicine", "Radiology"],

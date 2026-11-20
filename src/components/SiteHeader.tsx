@@ -24,7 +24,7 @@ export function SiteHeader() {
         <Link href="/" className="group flex min-w-0 items-center gap-3">
           <span className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full ring-2 ring-brand-teal/30">
             <Image
-              src={publicPath("/images/hero-dr-manchego.jpg")}
+              src={publicPath("/images/hero-dr-manchego.webp")}
               alt=""
               fill
               className="object-cover"

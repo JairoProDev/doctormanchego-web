@@ -1,12 +1,26 @@
 #!/usr/bin/env bash
 set -euo pipefail
-ROOT="$(cd "$(dirname "$0")/../../.." && pwd)"
-ASSETS="$ROOT/04-activos"
-STOCK="$ROOT/../../../buscadis.com/scripts/data/dr-manchego-catalog"
+ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
+CATALOG="$ROOT/04-activos/servicios/catalogo-web-buscadis"
 DEST="$(cd "$(dirname "$0")/.." && pwd)/public/images"
-mkdir -p "$DEST"
-cp "$ASSETS/foto-perfil-wa-dr-manchego-2026.jpg" "$DEST/hero-dr-manchego.jpg"
-cp "$ASSETS/consultorio-y-equipos/sala-camilla-sabana-azul.jpg" "$DEST/sala-consultorio.jpg"
-cp "$ASSETS/servicios/"*.jpg "$DEST/" 2>/dev/null || true
-# normalized names handled in repo; re-run full copy from web setup if needed
-echo "Sync mínimo listo en $DEST"
+mkdir -p "$DEST/services" "$DEST/fotos-reales"
+cp "$CATALOG/servicios/"*.webp "$DEST/services/"
+cp "$CATALOG/pendientes-confirmacion/"*.webp "$DEST/services/"
+cp "$CATALOG/fotos-reales/retrato-web.webp" "$DEST/hero-dr-manchego.webp"
+cp "$CATALOG/fotos-reales/sala-procedimientos.webp" "$DEST/sala-consultorio.webp"
+cp "$CATALOG/fotos-reales/ecografo-mindray-dc70.webp" "$DEST/fotos-reales/"
+cp "$CATALOG/fotos-reales/avatar-buscadis.webp" "$DEST/fotos-reales/"
+# Premios y fachada (sin cambio en esta pasada)
+PREMIOS="$ROOT/04-activos/premios"
+if [[ -d "$PREMIOS" ]]; then
+  cp "$PREMIOS/2026_especialista-radiologia.jpg" "$DEST/premio-radiologia.jpg" 2>/dev/null || true
+  cp "$PREMIOS/2018-06_maestro-ciencias-medicina.jpg" "$DEST/premio-maestro.jpg" 2>/dev/null || true
+  cp "$PREMIOS/2022-07_grado-de-doctor.jpg" "$DEST/premio-doctor.jpg" 2>/dev/null || true
+  cp "$PREMIOS/2025-08-07_25-anios.jpg" "$DEST/premio-25-anios.jpg" 2>/dev/null || true
+  cp "$PREMIOS/2024-12_investigacion-primer-lugar.jpg" "$DEST/premio-investigacion.jpg" 2>/dev/null || true
+fi
+FACHADA="$ROOT/04-activos/consultorio-y-equipos"
+if [[ -f "$FACHADA/fachada-banner.jpg" ]]; then
+  cp "$FACHADA/fachada-banner.jpg" "$DEST/fachada-banner.jpg"
+fi
+echo "Imágenes WebP sincronizadas en $DEST"
