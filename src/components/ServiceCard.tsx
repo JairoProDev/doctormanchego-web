@@ -7,7 +7,7 @@ type Props = { service: Service; priority?: boolean };
 
 export function ServiceCard({ service, priority }: Props) {
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-brand-navy/8 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+    <article className="card-lift group flex h-full flex-col overflow-hidden rounded-2xl border border-brand-navy/8 bg-white shadow-sm">
       <div className="relative aspect-[16/10] overflow-hidden bg-brand-cream-dark">
         <Image
           src={publicPath(service.image)}
@@ -30,12 +30,20 @@ export function ServiceCard({ service, priority }: Props) {
         <p className="mt-2 flex-1 text-sm leading-relaxed text-brand-navy/75 line-clamp-3">
           {service.description}
         </p>
-        <Link
-          href={`/servicios/${service.slug}`}
-          className="mt-4 inline-flex text-sm font-semibold text-brand-teal hover:underline"
-        >
-          Más información →
-        </Link>
+        <div className="mt-4 flex flex-wrap items-center gap-3">
+          <Link
+            href={`/servicios/${service.slug}`}
+            className="inline-flex text-sm font-semibold text-brand-teal hover:underline"
+          >
+            Más información →
+          </Link>
+          <Link
+            href={`/servicios/${service.slug}#agendar`}
+            className="rounded-full bg-brand-navy/5 px-3 py-1 text-xs font-semibold text-brand-navy hover:bg-brand-teal/10"
+          >
+            Agendar
+          </Link>
+        </div>
       </div>
     </article>
   );

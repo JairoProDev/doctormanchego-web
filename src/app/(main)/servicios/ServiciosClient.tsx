@@ -1,9 +1,11 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
 import { ServiceCard } from "@/components/ServiceCard";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { Reveal } from "@/components/motion/Reveal";
 import type { Service, ServiceCategory } from "@/data/services";
 import { serviceCategories } from "@/data/services";
 
@@ -22,11 +24,14 @@ export function ServiciosClient({ services }: Props) {
 
   return (
     <>
-      <Section
+      <PageHero
         eyebrow="Catálogo clínico"
         title="Servicios del consultorio"
-        description="Seleccione un área o explore la lista completa. Para agendar, use WhatsApp con el motivo y su horario preferido."
+        description="Filtre por área o explore los 20 servicios. Agende por WhatsApp indicando motivo y horario preferido."
       >
+        <WhatsAppButton label="Agendar con recepción" />
+      </PageHero>
+      <Section variant="elevated" title="Explorar por categoría">
         <div
           className="flex flex-wrap gap-2"
           role="tablist"
@@ -50,8 +55,10 @@ export function ServiciosClient({ services }: Props) {
           {filtered.length} servicio{filtered.length === 1 ? "" : "s"}
         </p>
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((s) => (
-            <ServiceCard key={s.slug} service={s} />
+          {filtered.map((s, i) => (
+            <Reveal key={s.slug} delayMs={(i % 6) * 40}>
+              <ServiceCard service={s} />
+            </Reveal>
           ))}
         </div>
         <div className="mt-12 flex justify-center">

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { site } from "@/data/site";
 import { publicPath } from "@/lib/paths";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 const nav = [
   { href: "/", label: "Inicio" },
@@ -19,7 +20,7 @@ export function SiteHeader() {
   const pathname = usePathname();
 
   return (
-    <header className="no-print sticky top-0 z-50 border-b border-brand-navy/5 bg-white/90 shadow-sm backdrop-blur-md">
+    <header className="no-print sticky top-0 z-50 border-b border-brand-navy/5 bg-white/85 shadow-sm backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-2.5">
         <Link href="/" className="group flex min-w-0 items-center gap-3">
           <span className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full ring-2 ring-brand-teal/30">
@@ -41,7 +42,8 @@ export function SiteHeader() {
             </span>
           </span>
         </Link>
-        <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Principal">
+        <div className="hidden items-center gap-3 lg:flex">
+        <nav className="flex items-center gap-0.5" aria-label="Principal">
           {nav.map((item) => {
             const active =
               item.href === "/"
@@ -62,6 +64,8 @@ export function SiteHeader() {
             );
           })}
         </nav>
+        <WhatsAppButton label="Agendar" className="!px-4 !py-2 !text-xs" />
+        </div>
         <MobileNav pathname={pathname} />
       </div>
     </header>

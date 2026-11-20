@@ -6,7 +6,7 @@ type Props = {
   description?: string;
   className?: string;
   children?: ReactNode;
-  variant?: "default" | "navy" | "soft";
+  variant?: "default" | "navy" | "soft" | "elevated";
   id?: string;
 };
 
@@ -24,7 +24,9 @@ export function Section({
       ? "bg-brand-navy text-brand-cream"
       : variant === "soft"
         ? "bg-brand-cream-dark/60"
-        : "";
+        : variant === "elevated"
+          ? "bg-white"
+          : "";
   const eyebrowColor =
     variant === "navy" ? "text-brand-gold" : "text-brand-teal";
   const titleColor = variant === "navy" ? "text-white" : "text-brand-navy";
@@ -32,8 +34,9 @@ export function Section({
     variant === "navy" ? "text-brand-cream/75" : "text-brand-navy/70";
 
   return (
-    <section id={id} className={`py-16 sm:py-20 ${bg} ${className}`}>
+    <section id={id} className={`relative py-16 sm:py-24 ${bg} ${className}`}>
       <div className="mx-auto max-w-6xl px-4">
+        {variant === "elevated" ? <div className="section-divider mb-12 max-w-xs" aria-hidden /> : null}
         {eyebrow ? (
           <p className={`text-[10px] font-bold uppercase tracking-[0.28em] ${eyebrowColor}`}>
             {eyebrow}

@@ -4,7 +4,7 @@ import { buscadisProfileUrl } from "@/lib/paths";
 
 export function SiteFooter() {
   return (
-    <footer className="no-print mt-auto border-t border-brand-navy/10 bg-brand-navy text-brand-cream/85">
+    <footer className="no-print mt-auto border-t border-brand-gold/20 bg-gradient-to-b from-brand-navy to-[#081828] text-brand-cream/85">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div className="sm:col-span-2 lg:col-span-1">
           <p className="font-serif text-xl font-bold text-white">{site.name}</p>

@@ -61,3 +61,138 @@
 .skip-link {
   @apply sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-brand-navy focus:px-4 focus:py-2 focus:text-white;
 }
+
+/* —— Motion & luxury surfaces —— */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(1.25rem);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+@keyframes hero-float {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-12px) scale(1.02);
+  }
+}
+.animate-hero-float {
+  animation: hero-float 8s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-hero-float {
+    animation: none;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  animation: marquee 32s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+.text-shimmer {
+  background: linear-gradient(
+    105deg,
+    var(--color-gold) 0%,
+    #f0e6c8 35%,
+    var(--color-gold) 70%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.text-shimmer-animated {
+  animation: shimmer 6s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .text-shimmer-animated {
+    animation: none;
+  }
+}
+
+.glass-panel {
+  background: color-mix(in srgb, white 72%, transparent);
+  backdrop-filter: blur(14px);
+  border: 1px solid color-mix(in srgb, var(--color-navy) 8%, transparent);
+}
+
+.glass-panel-dark {
+  background: color-mix(in srgb, var(--color-navy) 55%, transparent);
+  backdrop-filter: blur(16px);
+  border: 1px solid color-mix(in srgb, white 12%, transparent);
+}
+
+.card-lift {
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease;
+}
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 20px 40px -24px color-mix(in srgb, var(--color-navy) 45%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--color-gold) 25%, transparent);
+}
+
+.mesh-hero {
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 20%, color-mix(in srgb, var(--color-gold) 22%, transparent), transparent),
+    radial-gradient(ellipse 60% 50% at 90% 10%, color-mix(in srgb, var(--color-teal-light) 35%, transparent), transparent),
+    linear-gradient(145deg, var(--color-navy) 0%, var(--color-navy-soft) 45%, var(--color-teal) 100%);
+}
+
+.grain::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--color-gold) 55%, transparent),
+    transparent
+  );
+}

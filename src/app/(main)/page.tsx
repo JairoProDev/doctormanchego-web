@@ -3,9 +3,16 @@ import Link from "next/link";
 import { Hero } from "@/components/Hero";
 import { Section } from "@/components/Section";
 import { TrustStrip } from "@/components/TrustStrip";
+import { TrustMarquee } from "@/components/home/TrustMarquee";
 import { ServiceCard } from "@/components/ServiceCard";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { PillarsGrid } from "@/components/home/PillarsGrid";
+import { CredentialShowcase } from "@/components/home/CredentialShowcase";
+import { JourneySteps } from "@/components/home/JourneySteps";
+import { PublicationTeaser } from "@/components/home/PublicationTeaser";
+import { CtaPanel } from "@/components/home/CtaPanel";
+import { Reveal } from "@/components/motion/Reveal";
 import { bioParagraphs } from "@/data/credentials";
 import { faqs } from "@/data/faq";
 import { getFeaturedServices } from "@/data/services";
@@ -19,64 +26,111 @@ export default function HomePage() {
     <>
       <Hero />
       <TrustStrip />
+      <TrustMarquee />
+
+      <Section
+        variant="elevated"
+        eyebrow="Áreas de atención"
+        title="Cuatro caminos claros hacia su cita"
+        description="Cada enfoque tiene su propia página de información y agendado rápido."
+      >
+        <PillarsGrid />
+      </Section>
 
       <Section
         eyebrow="Quién es"
-        title="Un médico de familia que explica con claridad"
-        description="Atención en Wanchaq para la consulta, la familia, el dolor y lo que se resuelve en el mismo local."
+        title="Ciencia, trato humano y continuidad en Cusco"
+        description="Medicina de familia y radiología en un consultorio pensado para explicar, no para apurar."
       >
-        <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
-          <div className="space-y-4 text-pretty leading-relaxed text-brand-navy/85">
-            {bioParagraphs.map((p) => (
-              <p key={p.slice(0, 40)}>{p}</p>
-            ))}
-          </div>
-          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-lg ring-1 ring-brand-navy/10">
-            <Image
-              src={publicPath("/images/sala-consultorio.webp")}
-              alt="Sala de procedimientos del consultorio"
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
-          </div>
-        </div>
-        <div className="mt-10 flex flex-wrap gap-x-6 gap-y-2">
-          <Link
-            href="/trayectoria"
-            className="text-sm font-semibold text-brand-teal hover:underline"
-          >
-            Ver trayectoria y reconocimientos →
-          </Link>
-          <Link
-            href="/publicaciones"
-            className="text-sm font-semibold text-brand-teal hover:underline"
-          >
-            Publicaciones e investigación →
-          </Link>
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+          <Reveal>
+            <div className="space-y-4 text-pretty text-base leading-relaxed text-brand-navy/85">
+              {bioParagraphs.slice(0, 3).map((p) => (
+                <p key={p.slice(0, 48)}>{p}</p>
+              ))}
+            </div>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                href="/trayectoria"
+                className="rounded-full border border-brand-navy/15 bg-white px-5 py-2.5 text-sm font-semibold text-brand-navy shadow-sm hover:border-brand-teal/40"
+              >
+                Trayectoria →
+              </Link>
+              <Link
+                href="/publicaciones"
+                className="rounded-full border border-brand-navy/15 bg-white px-5 py-2.5 text-sm font-semibold text-brand-navy shadow-sm hover:border-brand-teal/40"
+              >
+                Investigación →
+              </Link>
+            </div>
+          </Reveal>
+          <Reveal delayMs={120}>
+            <div className="relative">
+              <div className="absolute -inset-2 rounded-3xl bg-gradient-to-br from-brand-gold/25 to-brand-teal/20 blur-xl" />
+              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-xl ring-1 ring-brand-navy/10">
+                <Image
+                  src={publicPath("/images/sala-consultorio.webp")}
+                  alt="Sala de procedimientos del consultorio"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+              <p className="mt-4 text-center text-sm text-brand-navy/60">
+                Procedimientos, dolor y ecografía en el mismo piso.
+              </p>
+            </div>
+          </Reveal>
         </div>
       </Section>
 
       <Section
         variant="soft"
-        eyebrow="Servicios"
-        title="Lo que puede agendar en el consultorio"
-        description="Precios y disponibilidad se confirman al escribir por WhatsApp. Sin promesas de resultado en esta web."
+        eyebrow="Trayectoria visual"
+        title="Formación que respalda cada consulta"
+      >
+        <CredentialShowcase />
+      </Section>
+
+      <Section
+        eyebrow="Experiencia del paciente"
+        title="Del primer mensaje al control de seguimiento"
+        description="Un recorrido simple, pensado para reducir fricción."
+      >
+        <JourneySteps />
+      </Section>
+
+      <Section
+        variant="soft"
+        eyebrow="Servicios destacados"
+        title="Lo que más se agenda en el consultorio"
+        description="Precios y cupos se confirman al escribir. Sin promesas de resultado en esta web."
       >
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {featured.map((s, i) => (
-            <ServiceCard key={s.slug} service={s} priority={i < 3} />
+            <Reveal key={s.slug} delayMs={i * 70}>
+              <ServiceCard service={s} priority={i < 3} />
+            </Reveal>
           ))}
         </div>
-        <div className="mt-10 flex flex-wrap justify-center gap-4">
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
           <Link
             href="/servicios"
-            className="rounded-full bg-brand-navy px-8 py-3 text-sm font-semibold text-white hover:bg-brand-navy-soft"
+            className="rounded-full bg-brand-navy px-8 py-3.5 text-sm font-semibold text-white shadow-lg hover:bg-brand-navy-soft"
           >
-            Ver todos los servicios
+            Explorar los 20 servicios
           </Link>
-          <WhatsAppButton />
+          <WhatsAppButton label="Agendar por WhatsApp" />
         </div>
+      </Section>
+
+      <Section
+        variant="elevated"
+        eyebrow="Evidencia"
+        title="Investigación y publicación médica"
+        description="Artículos, reportes y divulgación con rigor académico."
+      >
+        <PublicationTeaser />
       </Section>
 
       <Section
@@ -86,50 +140,60 @@ export default function HomePage() {
         title="Segundo piso, Centro Médico Vithamed"
         description={site.entranceNote}
       >
-        <div className="grid gap-8 lg:grid-cols-2">
-          <div className="space-y-4 text-brand-cream/85">
-            <p className="text-lg font-medium text-white">{site.addressFull}</p>
-            <p>Recepción: {site.receptionHours}</p>
-            <p>
-              WhatsApp:{" "}
-              <a
-                href={`https://wa.me/${site.phoneWhatsapp}`}
-                className="font-semibold text-brand-gold hover:underline"
+        <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
+          <Reveal>
+            <div className="space-y-5 rounded-2xl border border-white/10 bg-white/5 p-6 text-brand-cream/88">
+              <p className="text-xl font-semibold text-white">{site.addressFull}</p>
+              <ul className="space-y-2 text-sm">
+                <li>Recepción: {site.receptionHours}</li>
+                <li>
+                  WhatsApp:{" "}
+                  <a
+                    href={`https://wa.me/${site.phoneWhatsapp}`}
+                    className="font-semibold text-brand-gold hover:underline"
+                  >
+                    {site.phoneDisplay}
+                  </a>
+                </li>
+              </ul>
+              <Link
+                href="/ubicacion"
+                className="inline-flex text-sm font-semibold text-brand-gold hover:underline"
               >
-                {site.phoneDisplay}
-              </a>
-            </p>
-            <Link
-              href="/ubicacion"
-              className="inline-block text-sm font-semibold text-brand-gold hover:underline"
-            >
-              Mapa e indicaciones detalladas →
-            </Link>
-          </div>
-          <div className="overflow-hidden rounded-2xl ring-1 ring-white/15">
-            <iframe
-              title="Mapa del consultorio en Wanchaq, Cusco"
-              src={site.mapsEmbedUrl}
-              className="aspect-[4/3] w-full border-0"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
+                Indicaciones y mapa ampliado →
+              </Link>
+            </div>
+          </Reveal>
+          <Reveal delayMs={100}>
+            <div className="overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/15">
+              <iframe
+                title="Mapa del consultorio en Wanchaq, Cusco"
+                src={site.mapsEmbedUrl}
+                className="aspect-[4/3] w-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </Reveal>
         </div>
       </Section>
 
       <Section
         eyebrow="Preguntas frecuentes"
         title="Antes de escribir por WhatsApp"
-        description="Respuestas breves. Si su caso es urgente, acuda a emergencias."
+        description="Respuestas breves. Urgencias graves: acuda a emergencia."
       >
-        <FaqAccordion items={faqs} limit={5} />
-        <p className="mt-6 text-center">
+        <Reveal>
+          <FaqAccordion items={faqs} limit={6} />
+        </Reveal>
+        <p className="mt-8 text-center">
           <Link href="/contacto#faq" className="text-sm font-semibold text-brand-teal hover:underline">
-            Ver todas las preguntas
+            Ver todas las preguntas →
           </Link>
         </p>
       </Section>
+
+      <CtaPanel />
     </>
   );
 }

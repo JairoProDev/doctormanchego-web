@@ -67,7 +67,7 @@ export default async function ServiceDetailPage({ params }: Props) {
             Los precios y la disponibilidad se confirman al agendar. La información de esta página
             no reemplaza la evaluación médica presencial.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div id="agendar" className="mt-8 flex flex-wrap gap-3 scroll-mt-28">
             <WhatsAppButton context={service.title} label="Agendar este servicio" />
             <Link
               href="/contacto"
