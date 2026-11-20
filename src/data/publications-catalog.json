@@ -1,0 +1,97 @@
+{
+  "meta": {
+    "autor": "José Víctor Manchego Enríquez",
+    "orcid": "https://orcid.org/0000-0002-1145-8928",
+    "busquedaGoogleAcademico": "https://scholar.google.com/scholar?q=Jose+Victor+Manchego+Enriquez",
+    "indiceAliciaConcytec": "https://alicia.concytec.gob.pe/vufind/Author/Home?author=Manchego+Enr%C3%ADquez%2C+Jos%C3%A9",
+    "notaFuentes": "Google Académico bloqueó consulta automatizada (oct 2026). Ítems verificados en RPMI, repositorio UNSA, repositorio EsSalud, ALICIA/CONCYTEC y blog del doctor. No se encontró perfil público de usuario en Google Scholar; ORCID confirmado en artículos RPMI.",
+    "compiladoEn": "2026-10-31"
+  },
+  "items": [
+    {
+      "id": "pub-rpmi-covid-mtc-2021",
+      "kind": "articulo-revista",
+      "titulo": "COVID-19 y la medicina tradicional y complementaria",
+      "resumen": "Artículo de divulgación científica en Revista Peruana de Medicina Integrativa sobre cómo se enfrentaron epidemias históricas y qué rol tuvo la medicina tradicional y complementaria frente a COVID-19.",
+      "venue": "Revista Peruana de Medicina Integrativa",
+      "year": 2021,
+      "publicadaEn": "2021-10-01T00:00:00.000Z",
+      "url": "https://rpmi.pe/index.php/rpmi/article/view/40",
+      "autores": "José Víctor Manchego Enríquez",
+      "rol": "autor-correspondiente"
+    },
+    {
+      "id": "pub-rpmi-geranio-2021",
+      "kind": "articulo-revista",
+      "titulo": "Efecto antinflamatorio del gel de Pelargonium zonale (geranio) en Cavia porcellus con gingivitis aguda",
+      "resumen": "Estudio experimental sobre gel de geranio (P. zonale) en cobayos con gingivitis aguda; comparación con control positivo y agua destilada.",
+      "venue": "Revista Peruana de Medicina Integrativa",
+      "year": 2021,
+      "publicadaEn": "2021-12-22T00:00:00.000Z",
+      "url": "https://rpmi.pe/index.php/rpmi/article/view/35",
+      "autores": "José Víctor Manchego Enríquez; Karin Janet Jayo Silva",
+      "rol": "autor-principal"
+    },
+    {
+      "id": "pub-rpmi-ulcera-bicarbonato-2022",
+      "kind": "reporte-caso",
+      "titulo": "Tratamiento de úlcera crónica varicosa con bicarbonato de sodio: reporte de caso",
+      "resumen": "Reporte de caso de úlcera varicosa de 43 años de evolución tratada con solución de bicarbonato de sodio al 5% durante seis meses; mejora del VCSS de 24 a 11 puntos.",
+      "venue": "Revista Peruana de Medicina Integrativa",
+      "year": 2022,
+      "publicadaEn": "2022-01-04T00:00:00.000Z",
+      "url": "https://rpmi.pe/index.php/rpmi/article/view/26",
+      "doi": "https://doi.org/10.26722/rpmi.2022.v7n1.26",
+      "autores": "Cynthia Cruz Flores; José Víctor Manchego Enríquez",
+      "rol": "coautor"
+    },
+    {
+      "id": "pub-rpmi-terapia-neural-2022",
+      "kind": "revision-narrativa",
+      "titulo": "Revisión narrativa de la evidencia científica de la Terapia Neural",
+      "resumen": "Revisión narrativa sobre terapia neural en dolor crónico; búsqueda en PubMed y análisis de diez estudios seleccionados.",
+      "venue": "Revista Peruana de Medicina Integrativa",
+      "year": 2022,
+      "publicadaEn": "2022-12-14T00:00:00.000Z",
+      "url": "https://rpmi.pe/index.php/rpmi/article/view/690",
+      "autores": "Javier Lauro Aliaga; José Fernández Sosaya; José Manchego Enríquez; Moisés Mendocilla-Risco; Martha Mogrovejo Sedano; Juan Jose Lopera",
+      "rol": "coautor"
+    },
+    {
+      "id": "pub-unsa-tesis-doctorado-2019",
+      "kind": "tesis-doctorado",
+      "titulo": "Prevalencia y evaluación de la automedicación en pacientes de consulta externa de un hospital de Arequipa 2018",
+      "resumen": "Tesis doctoral (UNSA, 2019): 499 pacientes del Hospital Regional III Honorio Delgado Espinoza; prevalencia de automedicación 0,517; evaluación de adecuación de medicamentos, dosis y duración.",
+      "venue": "Universidad Nacional de San Agustín de Arequipa — Repositorio institucional",
+      "year": 2019,
+      "publicadaEn": "2019-01-01T00:00:00.000Z",
+      "url": "http://repositorio.unsa.edu.pe/handle/UNSA/10217",
+      "autores": "José Víctor Manchego Enríquez",
+      "rol": "autor-principal"
+    },
+    {
+      "id": "pub-blog-plantas-2021",
+      "kind": "divulgacion-blog",
+      "titulo": "De la medicina tradicional a la medicina integrativa en el uso de las plantas medicinales",
+      "resumen": "Nota de divulgación en su blog personal sobre plantas medicinales y medicina integrativa.",
+      "venue": "doctormanchego.publicadis.com (notas)",
+      "year": 2021,
+      "publicadaEn": "2021-01-24T12:00:00.000Z",
+      "url": "https://doctormanchego.publicadis.com/notas/plantas-medicinales-medicina-integrativa",
+      "autores": "José Víctor Manchego Enríquez",
+      "rol": "autor"
+    },
+    {
+      "id": "pub-blog-covid-2021",
+      "kind": "divulgacion-blog",
+      "titulo": "Las secuelas del covid-19",
+      "resumen": "Nota de divulgación en su blog sobre secuelas post COVID-19.",
+      "venue": "doctormanchego.publicadis.com (notas)",
+      "year": 2021,
+      "publicadaEn": "2021-04-04T12:00:00.000Z",
+      "url": "https://doctormanchego.publicadis.com/notas/secuelas-covid-19",
+      "autores": "José Víctor Manchego Enríquez",
+      "rol": "autor"
+    }
+  ]
+}
