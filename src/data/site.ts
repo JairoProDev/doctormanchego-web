@@ -3,7 +3,7 @@ export const site = {
   legalName: "Consultorio del Dr. José Víctor Manchego Enríquez",
   tagline: "Médico radiólogo y de familia en Cusco",
   taglineSecondary:
-    "Medicina familiar y radiología (UNSAAC) · Dolor · Procedimientos en el mismo local",
+    "Medicina familiar y radiología · Dolor · Procedimientos en el mismo local",
   cmp: "36594",
   addressLine: "Av. Túpac Amaru D2A, 2.º piso",
   district: "Wanchaq",
