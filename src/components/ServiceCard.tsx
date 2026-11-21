@@ -1,7 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { Service } from "@/data/services";
-import { publicPath } from "@/lib/paths";
+import { ServiceCardMedia } from "@/components/ServiceCardMedia";
 
 type Props = { service: Service; priority?: boolean };
 
@@ -9,12 +8,9 @@ export function ServiceCard({ service, priority }: Props) {
   return (
     <article className="card-lift group flex h-full flex-col overflow-hidden rounded-2xl border border-brand-navy/8 bg-white shadow-sm">
       <div className="relative aspect-[16/10] overflow-hidden bg-brand-cream-dark">
-        <Image
-          src={publicPath(service.image)}
-          alt=""
-          fill
-          className="object-cover transition duration-500 group-hover:scale-[1.03]"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        <ServiceCardMedia
+          images={[service.image, service.secondaryImage]}
+          alt={service.title}
           priority={priority}
         />
         <span className="absolute left-3 top-3 rounded-full bg-white/95 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-brand-teal shadow-sm">

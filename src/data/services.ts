@@ -1,4 +1,4 @@
-import { catalogServiceImage } from "./service-images";
+import { catalogServiceMedia } from "./service-images";
 
 export type ServiceCategory =
   | "Consulta"
@@ -14,6 +14,7 @@ export type Service = {
   category: ServiceCategory;
   description: string;
   image: string;
+  secondaryImage: string;
   featured?: boolean;
   sort: number;
 };
@@ -34,7 +35,7 @@ export const services: Service[] = [
     category: "Consulta",
     description:
       "Examen, explicación de la dolencia y orientación del cuidado. Atiende adultos y niños. El control de seguimiento se agenda en la misma consulta.",
-    image: catalogServiceImage("drm-consulta"),
+    ...catalogServiceMedia("drm-consulta"),
     featured: true,
     sort: 1,
   },
@@ -43,7 +44,7 @@ export const services: Service[] = [
     title: "Orientación nutricional",
     category: "Consulta",
     description: "Plan de alimentación dentro de la consulta, a partir del examen.",
-    image: catalogServiceImage("drm-nutricion"),
+    ...catalogServiceMedia("drm-nutricion"),
     sort: 2,
   },
   {
@@ -52,7 +53,7 @@ export const services: Service[] = [
     category: "Familia",
     description:
       "Consejería a la pareja y a la familia en cada etapa: matrimonios recientes, hijos escolares, adolescentes, nido vacío y crisis familiares.",
-    image: catalogServiceImage("drm-familia"),
+    ...catalogServiceMedia("drm-familia"),
     featured: true,
     sort: 3,
   },
@@ -62,7 +63,7 @@ export const services: Service[] = [
     category: "Familia",
     description:
       "Visita a la familia en casa, con cita y según disponibilidad. Escriba la dirección y el motivo.",
-    image: catalogServiceImage("drm-domicilio"),
+    ...catalogServiceMedia("drm-domicilio"),
     sort: 4,
   },
   {
@@ -71,7 +72,7 @@ export const services: Service[] = [
     category: "Familia",
     description:
       "En la consulta se escuchan y se examinan el susto, el wayra, el sobreparto, el kayka, el mal de ojo y el agarrado por la tierra. Esa escucha va junto con la evaluación médica.",
-    image: catalogServiceImage("drm-andina"),
+    ...catalogServiceMedia("drm-andina"),
     sort: 5,
   },
   {
@@ -79,7 +80,7 @@ export const services: Service[] = [
     title: "Desgatillamiento muscular",
     category: "Dolor",
     description: "Trabajo de puntos musculares dolorosos en el consultorio.",
-    image: catalogServiceImage("drm-desgatillo"),
+    ...catalogServiceMedia("drm-desgatillo"),
     featured: true,
     sort: 6,
   },
@@ -89,7 +90,7 @@ export const services: Service[] = [
     category: "Dolor",
     description:
       "Infiltraciones para el dolor. Cuando corresponde, se apoyan en la ecografía del consultorio.",
-    image: catalogServiceImage("drm-infiltracion"),
+    ...catalogServiceMedia("drm-infiltracion"),
     featured: true,
     sort: 7,
   },
@@ -99,7 +100,7 @@ export const services: Service[] = [
     category: "Dolor",
     description:
       "Acupuntura y terapia neural, también llamada acupuntura alemana, en el consultorio.",
-    image: catalogServiceImage("drm-acupuntura"),
+    ...catalogServiceMedia("drm-acupuntura"),
     sort: 8,
   },
   {
@@ -108,7 +109,7 @@ export const services: Service[] = [
     category: "Terapias",
     description:
       "Auriculopuntura en consulta. La carta de puntos es del consultorio; no es una guía para aplicársela en casa.",
-    image: catalogServiceImage("drm-auriculo"),
+    ...catalogServiceMedia("drm-auriculo"),
     sort: 9,
   },
   {
@@ -116,7 +117,7 @@ export const services: Service[] = [
     title: "Uñero, callos y pie diabético",
     category: "Procedimientos",
     description: "Uñero, callos y cuidado del pie diabético, en el consultorio y con cita.",
-    image: catalogServiceImage("drm-unero"),
+    ...catalogServiceMedia("drm-unero"),
     sort: 10,
   },
   {
@@ -124,7 +125,7 @@ export const services: Service[] = [
     title: "Lavado de oídos",
     category: "Procedimientos",
     description: "Lavado de oídos en el consultorio.",
-    image: catalogServiceImage("drm-oidos"),
+    ...catalogServiceMedia("drm-oidos"),
     sort: 11,
   },
   {
@@ -132,7 +133,7 @@ export const services: Service[] = [
     title: "Cauterización por sangrado nasal",
     category: "Procedimientos",
     description: "Cauterización por hemorragia nasal, en el consultorio y con cita.",
-    image: catalogServiceImage("drm-nariz"),
+    ...catalogServiceMedia("drm-nariz"),
     sort: 12,
   },
   {
@@ -141,7 +142,7 @@ export const services: Service[] = [
     category: "Ecografía",
     description:
       "Ecografía en el consultorio. El letrero también nombra estudios ginecoobstétricos y Doppler: el tipo de estudio y la entrega del informe se confirman al agendar.",
-    image: catalogServiceImage("drm-eco"),
+    ...catalogServiceMedia("drm-eco"),
     featured: true,
     sort: 13,
   },
@@ -151,7 +152,7 @@ export const services: Service[] = [
     category: "Terapias",
     description:
       "Fitoterapia dentro de la consulta: infusiones, cocimientos, emplastos, pomadas, tinturas y extractos. No sustituye la evaluación médica.",
-    image: catalogServiceImage("drm-plantas"),
+    ...catalogServiceMedia("drm-plantas"),
     sort: 14,
   },
   {
@@ -160,7 +161,7 @@ export const services: Service[] = [
     category: "Terapias",
     description:
       "Homeopatía entre las terapias del consultorio. Se explica en la consulta, junto con las opciones de la medicina convencional.",
-    image: catalogServiceImage("drm-homeopatia"),
+    ...catalogServiceMedia("drm-homeopatia"),
     sort: 15,
   },
   {
@@ -168,7 +169,7 @@ export const services: Service[] = [
     title: "Flores de Bach",
     category: "Terapias",
     description: "Terapia floral de Bach. Se orienta dentro de la consulta.",
-    image: catalogServiceImage("drm-bach"),
+    ...catalogServiceMedia("drm-bach"),
     sort: 16,
   },
   {
@@ -176,7 +177,7 @@ export const services: Service[] = [
     title: "Ozonoterapia",
     category: "Terapias",
     description: "Ozonoterapia con el equipo del consultorio. La indicación se define en la cita.",
-    image: catalogServiceImage("drm-ozono"),
+    ...catalogServiceMedia("drm-ozono"),
     sort: 17,
   },
   {
@@ -185,7 +186,7 @@ export const services: Service[] = [
     category: "Terapias",
     description:
       "Plasma rico en plaquetas cuando la indicación corresponde. Se confirma al agendar.",
-    image: catalogServiceImage("drm-prp"),
+    ...catalogServiceMedia("drm-prp"),
     sort: 18,
   },
   {
@@ -194,7 +195,7 @@ export const services: Service[] = [
     category: "Terapias",
     description:
       "Consta entre las terapias del consultorio. Se confirma al agendar. No es un anuncio de productos.",
-    image: catalogServiceImage("drm-nutraceuticos"),
+    ...catalogServiceMedia("drm-nutraceuticos"),
     sort: 19,
   },
   {
@@ -203,7 +204,7 @@ export const services: Service[] = [
     category: "Terapias",
     description:
       "Consta entre las terapias del consultorio. Se confirma al agendar, sin atribuir un resultado.",
-    image: catalogServiceImage("drm-orto"),
+    ...catalogServiceMedia("drm-orto"),
     sort: 20,
   },
 ];

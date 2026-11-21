@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { getServiceBySlug, services } from "@/data/services";
+import { serviceLongCopyBySlug } from "@/data/service-long-copy";
 import { publicPath, absoluteUrl } from "@/lib/paths";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -32,6 +33,8 @@ export default async function ServiceDetailPage({ params }: Props) {
   const service = getServiceBySlug(slug);
   if (!service) notFound();
 
+  const longCopy = serviceLongCopyBySlug[slug];
+
   return (
     <article>
       <div className="bg-brand-navy text-white">
@@ -49,20 +52,36 @@ export default async function ServiceDetailPage({ params }: Props) {
         </div>
       </div>
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 lg:grid-cols-2">
-        <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-lg ring-1 ring-brand-navy/10">
-          <Image
-            src={publicPath(service.image)}
-            alt=""
-            fill
-            className="object-cover"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            priority
-          />
+        <div className="space-y-4">
+          <div className="relative aspect-square overflow-hidden rounded-2xl shadow-lg ring-1 ring-brand-navy/10">
+            <Image
+              src={publicPath(service.image)}
+              alt={service.title}
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              priority
+            />
+          </div>
+          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-brand-cream-dark ring-1 ring-brand-navy/10">
+            <Image
+              src={publicPath(service.secondaryImage)}
+              alt={`Imagen complementaria de ${service.title.toLocaleLowerCase("es")}`}
+              fill
+              className="object-contain"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+          </div>
         </div>
         <div>
           <p className="text-pretty text-lg leading-relaxed text-brand-navy/85">
             {service.description}
           </p>
+          {longCopy ? (
+            <div className="mt-6 space-y-4 whitespace-pre-line text-pretty text-base leading-relaxed text-brand-navy/80">
+              {longCopy}
+            </div>
+          ) : null}
           <p className="mt-6 text-sm text-brand-navy/60">
             Los precios y la disponibilidad se confirman al agendar. La información de esta página
             no reemplaza la evaluación médica presencial.
